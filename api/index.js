@@ -1,3 +1,5 @@
+import timetable from './timetable.html';
+
 export default async function handler(req, res) {
   const path = require('path');
   const htmlFile = process.env.HTML_FILE || 'api/timetable.html';
