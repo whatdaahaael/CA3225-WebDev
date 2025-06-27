@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Timetable</title>
+    <!-- Lovelo Black (filled) font -->
+    <link href="https://fonts.cdnfonts.com/css/lovelo" rel="stylesheet">
+    <!-- Proxima Nova font -->
+    <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
+    <style>
+        body {
+            background: #10182a;
+            color: #e0e6f0;
+            font-family: 'Proxima Nova', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            color: #fff;
+            letter-spacing: 3px;
+            margin: 40px 0 30px 0;
+            text-align: center;
+            font-family: 'Lovelo Line Bold', 'Lovelo', Arial, sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+        }
+        .timetable-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #182447;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px #000a;
+            padding: 40px 40px 50px 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: #182447;
+            table-layout: fixed;
+        }
+        th, td {
+            border: 1.5px solid #2a3557;
+            text-align: center;
+            padding: 18px 0;
+            font-size: 1.08rem;
+            transition: box-shadow 0.2s, background 0.2s;
+            min-width: 180px;
+            max-width: 300px;
+            height: 48px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        th {
+            background: #223366;
+            color: #fff;
+            font-size: 1.15rem;
+            letter-spacing: 1.5px;
+            font-family: 'Lovelo Black', 'Lovelo', Arial, sans-serif;
+            font-weight: 900;
+        }
+        th:first-child, td.day-header {
+            min-width: 140px;
+            max-width: 200px;
+            white-space: normal;
+            text-overflow: unset;
+            overflow: visible;
+        }
+        .day-header {
+            background: #1a2540;
+            color: #7ecbff;
+            font-family: 'Lovelo Black', 'Lovelo', Arial, sans-serif;
+            font-size: 1.08rem;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+        .current-class {
+            background: #2e4a7d !important;
+            color: #fff !important;
+            box-shadow: 0 0 16px 2px #7ecbff99;
+            z-index: 1;
+            position: relative;
+        }
+        td {
+            font-family: 'Proxima Nova', Arial, sans-serif;
+            font-weight: 600;
+            color: #e0e6f0;
+        }
+        td:hover {
+            box-shadow: 0 0 10px 2px #7ecbff77;
+            background: #223366;
+            cursor: pointer;
+        }
+        .lunch {
+            background: #1e2d4d;
+            color: #ffb347;
+            font-weight: bold;
+            font-family: 'Proxima Nova', Arial, sans-serif;
+        }
+        .lab {
+            background: #223366;
+            color: #ffb347;
+            font-family: 'Proxima Nova', Arial, sans-serif;
+        }
+        @media (max-width: 1500px) {
+            .timetable-container { padding: 10px; }
+            th, td { min-width: 150px; max-width: 150px; font-size: 0.95rem; padding: 10px 0; }
+            h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<h2>BCA TIMETABLE</h2>
+<div class="timetable-container">
+<table id="timetable">
+    <tr>
+        <th>Day</th>
+        <th>10:10-11:00</th>
+        <th>11:05-11:55</th>
+        <th>12:00-12:50</th>
+        <th>12:50-1:50</th>
+        <th>1:50-2:40</th>
+        <th>2:45-3:35</th>
+        <th>3:40-4:30</th>
+    </tr>
+    <tr>
+        <td class="day-header">MON</td>
+        <td>L:G/T/SK/IK</td>
+        <td></td>
+        <td>GE</td>
+        <td class="lunch" rowspan="6">LUNCH</td>
+        <td class="lab" colspan="2">DBMS LAB <br>B1,L3 ; B2, L2</td>
+        <td>WEB - AS</td>
+    </tr>
+    <tr>
+        <td class="day-header">TUE</td>
+        <td>L:G/T/SK/IK</td>
+        <td></td>
+        <td>GE</td>
+        <td>DBMS-PR</td>
+        <td>AI-MR</td>
+        <td>COA-SR</td>
+    </tr>
+    <tr>
+        <td class="day-header">WED</td>
+        <td>L:G/T/SK/IK</td>
+        <td></td>
+        <td>GE</td>
+        <td>COA-SR</td>
+        <td>DBMS-PR</td>
+        <td>WEB - AS</td>
+    </tr>
+    <tr>
+        <td class="day-header">THU</td>
+        <td></td>
+        <td></td>
+        <td>L:AE/K/H</td>
+        <td>COA-SR</td>
+        <td>AI-MR</td>
+        <td>DBMS-PR</td>
+    </tr>
+    <tr>
+        <td class="day-header">FRI</td>
+        <td></td>
+        <td></td>
+        <td>L:AE/K/H</td>
+        <td class="lab" colspan="2">WEB LAB<br> B1, L1 ; B2, L2</td>
+        <td>WEB-AS</td>
+    </tr>
+    <tr>
+        <td class="day-header">SAT</td>
+        <td>LIBRARY</td>
+        <td>AI-MR</td>
+        <td>L:AE/K/H</td>
+        <td colspan="2"></td>
+        <td></td>
+    </tr>
+</table>
+</div>
+<script>
+// Time slots and their start/end in 24h format
+const timeSlots = [
+    { label: '10:10-11:00', start: '10:10', end: '11:00' },
+    { label: '11:05-11:55', start: '11:05', end: '11:55' },
+    { label: '12:00-12:50', start: '12:00', end: '12:50' },
+    { label: '12:50-1:50', start: '12:50', end: '13:50' },
+    { label: '1:50-2:40', start: '13:50', end: '14:40' },
+    { label: '2:45-3:35', start: '14:45', end: '15:35' },
+    { label: '3:40-4:30', start: '15:40', end: '16:30' }
+];
+
+function getCurrentSlotIdx() {
+    const now = new Date();
+    const h = now.getHours();
+    const m = now.getMinutes();
+    for (let i = 0; i < timeSlots.length; i++) {
+        const [sh, sm] = timeSlots[i].start.split(':').map(Number);
+        const [eh, em] = timeSlots[i].end.split(':').map(Number);
+        const start = sh * 60 + sm;
+        const end = eh * 60 + em;
+        const curr = h * 60 + m;
+        if (curr >= start && curr < end) return i + 1; // +1 for table cell offset
+    }
+    return -1;
+}
+
+function highlightCurrentClass() {
+    const table = document.getElementById('timetable');
+    const dayIdx = (new Date().getDay() + 6) % 7; // Monday=0, ..., Saturday=5
+    if (dayIdx < 6) {
+        const slotIdx = getCurrentSlotIdx();
+        if (slotIdx > 0) {
+            const row = table.rows[dayIdx + 1]; // +1 for header
+            if (row && row.cells[slotIdx]) {
+                row.cells[slotIdx].classList.add('current-class');
+            }
+        }
+    }
+}
+highlightCurrentClass();
+setInterval(() => {
+    document.querySelectorAll('.current-class').forEach(cell => cell.classList.remove('current-class'));
+    highlightCurrentClass();
+}, 60000);
+</script>
+</body>
+</html>
