@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
   const path = require('path');
-  const htmlFile = process.env.HTML_FILE || 'all-pages/timetable.html';
+  const htmlFile = process.env.HTML_FILE || 'api/timetable.html';
   const filePath = path.join(process.cwd(), htmlFile);
   console.log('Resolved file path:', filePath); // Debug log
   try {
